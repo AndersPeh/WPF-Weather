@@ -8,7 +8,7 @@ namespace WPF_Weather.Model
 {
     public class Area
     {
-        public string ID { get; set; }
-        public string LocalizedName { get; set; }
+        public string ID { get; set; } = string.Empty;
+        public string LocalizedName { get; set; } = string.Empty;
     }
 }

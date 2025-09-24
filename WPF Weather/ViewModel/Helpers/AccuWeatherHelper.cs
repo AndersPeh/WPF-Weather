@@ -47,7 +47,7 @@ namespace WPF_Weather.ViewModel.Helpers
                 string json = await response.Content.ReadAsStringAsync();
 
                 // deserialises the json string into List<City> object.
-                cities = JsonConvert.DeserializeObject<List<City>>(json);
+                cities = JsonConvert.DeserializeObject<List<City>>(json) ?? new List<City>();
             }
 
             // It wasn't disposed as it was declared out using scope.
@@ -82,9 +82,8 @@ namespace WPF_Weather.ViewModel.Helpers
                 string json = await response.Content.ReadAsStringAsync();
 
                 // deserialises the json string into List<CurrentConditions> object, use FirstOrDefault to get the first item.
-                currentConditions = (
-                    JsonConvert.DeserializeObject<List<CurrentConditions>>(json)
-                ).FirstOrDefault();
+                var conditionsList = JsonConvert.DeserializeObject<List<CurrentConditions>>(json);
+                currentConditions = conditionsList?.FirstOrDefault() ?? new CurrentConditions();
             }
 
             // It wasn't disposed as it was declared out using scope.

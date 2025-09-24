@@ -8,8 +8,8 @@ namespace WPF_Weather.Model
 {
     public class Units
     {
-        public double Value { get; set; }
-        public string Unit { get; set; }
+        public string Value { get; set; } = string.Empty;
+        public string Unit { get; set; } = string.Empty;
         public int UnitType { get; set; }
     }
 }
